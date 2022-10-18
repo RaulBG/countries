@@ -1,0 +1,19 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "ApplicationsSettings": {
+    "Contries": {
+      "ConnectionStrings": {
+        "DefaultConnection": "Server=DESKTOP-LMIQ792\\SQLEXPRESS;User Id=contries;Password=contriesPW;MultipleActiveResultSets=True",
+        "Sync30GSConnection": "",
+        "Sync30PortalConnection": ""
+      }
+    }
+  }
+}

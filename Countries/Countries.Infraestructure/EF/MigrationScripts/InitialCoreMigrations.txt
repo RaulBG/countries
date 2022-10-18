@@ -1,0 +1,7 @@
+﻿
+--Teniendo el proyecto API como inicial ya qye es el que accede a las cadenas de conexion
+Y ejecutando desde la consola de de paquetes en el proyecto de infraestructura
+
+Add-Migration InitBD     
+
+Deapues correr el api
