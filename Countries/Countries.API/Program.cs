@@ -1,6 +1,7 @@
 using Common.Settings;
 using Countries.Infraestructure.EF;
 using Countries.Infraestructure.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -12,10 +13,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddMediatR(AppDomain.CurrentDomain.Load("Countries.Application")); //Esposible que se necesesite => AppDomain.CurrentDomain.Load("Common.Settings")
+
+
 builder.Services.AddDbContext<CountriesDbContext>();
 
 builder.Services.AddScoped<IDatabaseSettings, DatabaseSettings>();
 builder.Services.AddScoped<ICountryRepo, CountryRepo>();
+builder.Services.AddScoped<ICountryRepo, CountryRepo>();
+
 
 
 //Configuration

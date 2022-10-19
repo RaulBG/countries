@@ -3,6 +3,7 @@ using Countries.Domain.Models;
 using Countries.Infraestructure.Repositories;
 using Countries.Application.Commands;
 using Countries.Application.Queries;
+using MediatR;
 
 namespace Countries.Controllers
 {
@@ -12,12 +13,16 @@ namespace Countries.Controllers
     {       
         private readonly ILogger<CountryController> _logger;
         private readonly ICountryRepo _productHomologationsRepo;
+        private readonly IMediator _mediator;
+        
 
         public CountryController(ILogger<CountryController> logger
-                                , ICountryRepo productHomologationsRepo)
+                                , ICountryRepo productHomologationsRepo
+                                , IMediator mediator)
         {
             _logger = logger;
-            _productHomologationsRepo= productHomologationsRepo;    
+            _productHomologationsRepo= productHomologationsRepo;   
+            _mediator= mediator;
         }
 
         [HttpGet]
@@ -33,9 +38,15 @@ namespace Countries.Controllers
         [Route("GetCountries")]
         public async Task<ActionResult<IEnumerable<Country>>> GetAll()
         {
-            _logger.LogInformation("GetCountries");
-            var handlerQuery = new GetCountries(_productHomologationsRepo);           
-            return Ok(await handlerQuery.GetAll());
+            //inyection----->
+            //_logger.LogInformation("GetCountries");
+            //var handlerQuery = new GetCountries(_productHomologationsRepo);           
+            //return Ok(await handlerQuery.GetAll());
+
+            var countries = await _mediator.Send(new GetCountries());
+
+            return Ok(countries);
+
         }
 
         [HttpPost]       
