@@ -1,11 +1,4 @@
-﻿using Microsoft.Data.SqlClient.Server;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Countries.Domain.Models;
 using Countries.Infraestructure.EF;
 
@@ -36,6 +29,24 @@ namespace Countries.Infraestructure.Repositories
         public Task<Country> GetByIdAsync(int id, bool noTracking = true)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<Country>> GetAll()
+        {
+            var result = _table.AsNoTracking()               
+                .Include(c => c.Idd)
+                .Include(c => c.Currencies)
+                .Include(c => c.Maps)
+                .Include(c => c.CapitalInfo)
+                .Include(c => c.Car)
+                .Include(c => c.CoatOfArms)               
+                .Include(c => c.PostalCode)
+                .Include(c => c.Demonyms)
+                .Include(c => c.Flags)
+                .Include(c => c.Translations)
+                .Include(c=>c.Name).ThenInclude(n=>n.NativeNameTranslations);
+
+            return await result.ToListAsync();
         }
 
         public int SaveChanges()

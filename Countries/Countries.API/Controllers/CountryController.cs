@@ -2,6 +2,7 @@
 using Countries.Domain.Models;
 using Countries.Infraestructure.Repositories;
 using Countries.Application.Commands;
+using Countries.Application.Queries;
 
 namespace Countries.Controllers
 {
@@ -32,12 +33,12 @@ namespace Countries.Controllers
         [Route("GetCountries")]
         public async Task<ActionResult<IEnumerable<Country>>> GetAll()
         {
-            IEnumerable<Country>contries = new List<Country>();
-           
-            return Ok(contries);
+            _logger.LogInformation("GetCountries");
+            var handlerQuery = new GetCountries(_productHomologationsRepo);           
+            return Ok(await handlerQuery.GetAll());
         }
 
-        [HttpPost]
+        [HttpPost]       
         public async Task<bool> Add([FromBody]Country country)
         {
             _logger.LogInformation("Add Country");

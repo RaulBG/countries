@@ -14,5 +14,6 @@ namespace Countries.Infraestructure.Repositories
         int Delete(Country country, bool persist = true);
         int SaveChanges();
         Task<Country> GetByIdAsync(int id, bool noTracking = true);
+        Task<List<Country>> GetAll();
     }
 }
