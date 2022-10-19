@@ -1,5 +1,6 @@
 using Common.Settings;
 using Countries.Infraestructure.EF;
+using Countries.Infraestructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -11,8 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDatabaseSettings, DatabaseSettings>();
 builder.Services.AddDbContext<CountriesDbContext>();
+
+builder.Services.AddScoped<IDatabaseSettings, DatabaseSettings>();
+builder.Services.AddScoped<ICountryRepo, CountryRepo>();
+
 
 //Configuration
 //using IHost host = Host.CreateDefaultBuilder(args).Build();
@@ -24,11 +28,11 @@ builder.Services.AddDbContext<CountriesDbContext>();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-   var contex= scope.ServiceProvider.GetRequiredService<CountriesDbContext>();
-    contex.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//   var contex= scope.ServiceProvider.GetRequiredService<CountriesDbContext>();
+//    contex.Database.Migrate();
+//}
 
 
     // Configure the HTTP request pipeline.

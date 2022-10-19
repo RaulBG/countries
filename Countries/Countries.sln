@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Countries.Infraestructure",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{76EB1FFC-0F2F-4DCD-B186-836F57A14F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countries.Common", "..\Common\API\Countries.Common\Countries.Common.csproj", "{92632B03-5EDC-4D4C-A74B-291A779DA8D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Countries.Common", "..\Common\API\Countries.Common\Countries.Common.csproj", "{92632B03-5EDC-4D4C-A74B-291A779DA8D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countries.Application", "Countries.Application\Countries.Application.csproj", "{961782F1-29F0-46CD-A20E-2D5AAD504177}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{92632B03-5EDC-4D4C-A74B-291A779DA8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92632B03-5EDC-4D4C-A74B-291A779DA8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92632B03-5EDC-4D4C-A74B-291A779DA8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961782F1-29F0-46CD-A20E-2D5AAD504177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961782F1-29F0-46CD-A20E-2D5AAD504177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961782F1-29F0-46CD-A20E-2D5AAD504177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961782F1-29F0-46CD-A20E-2D5AAD504177}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{F8F68D4B-4980-4553-8EFE-D004965F782A} = {159FF4A3-5DAB-4CDD-9188-5E286195A594}
 		{CB3FDBE9-679D-4EA5-BA1D-E62A01328052} = {159FF4A3-5DAB-4CDD-9188-5E286195A594}
 		{92632B03-5EDC-4D4C-A74B-291A779DA8D5} = {76EB1FFC-0F2F-4DCD-B186-836F57A14F16}
+		{961782F1-29F0-46CD-A20E-2D5AAD504177} = {159FF4A3-5DAB-4CDD-9188-5E286195A594}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74109F9A-F68A-430E-8E20-7CB0598648BF}
