@@ -4,6 +4,7 @@ using Countries.Infraestructure.Repositories;
 using Countries.Application.Commands;
 using Countries.Application.Queries;
 using MediatR;
+using System.Collections.Generic;
 
 namespace Countries.Controllers
 {
@@ -42,7 +43,7 @@ namespace Countries.Controllers
             //_logger.LogInformation("GetCountries");
             //var handlerQuery = new GetCountries(_productHomologationsRepo);           
             //return Ok(await handlerQuery.GetAll());
-
+            
             var countries = await _mediator.Send(new GetCountries());
 
             return Ok(countries);

@@ -2,7 +2,6 @@ using Common.Settings;
 using Countries.Infraestructure.EF;
 using Countries.Infraestructure.Repositories;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
